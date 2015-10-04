@@ -14,9 +14,8 @@ public class ProfileController extends AbstractStudentController {
 
     @RequestMapping("/student/profile")
     public String index(Model model) {
-        initModel(model);
-        model.addAttribute("content", "student/profile");
-        return "home";
+
+        return "student/profile2";
     }
 
     @RequestMapping("/student/profile/update")
