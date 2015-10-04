@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/"
+      th:include="../templates/student-template :: page">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <title>Profile</title>
+</head>
+<body>
+<div th:fragment="content">
+    <div class="content-wrapper bg-white" style="min-height: 916px;">
+        <!-- Main content START -->
+        <section class="content">
+            <div class="row">
+                <div class="col-md-10 col-md-offset-1">
+                    <ul class="nav nav-pills nav-justified bg-aqua">
+                        <li class="active"><a data-toggle="pill" href="#home">Thông
+                            Tin Cá Nhân</a></li>
+                        <li><a data-toggle="pill" href="#menu1">Cập Nhật Thông Tin
+                            Cá Nhân</a></li>
+                        <li><a data-toggle="pill" href="#menu2">Đổi Mật Khẩu</a>
+                        </li>
+                    </ul>
+
+                    <div class="tab-content my-border">
+                        <div id="home" class="tab-pane fade in active">
+                            <div class="row">
+                                <div  class="col-md-10 col-md-offset-1">
+                                    <form class="form-horizontal">
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label">MSSV:</label>
+                                            <div class="col-sm-10">
+                                                <p class="form-control-static" th:text="${student.studentIdentity}">123456798</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label">Họ và tên:</label>
+                                            <div class="col-sm-10">
+                                                <p class="form-control-static" th:text="${student.fullName}">Vo Nhat Anh Khoa</p></div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label">Giới tính:</label>
+                                            <div class="col-sm-10">
+                                                <p class="form-control-static">
+                                                    <span th:if="${student.sex}">
+                                                        Nam
+                                                    </span>
+                                                    <span th:if="${!student.sex}">
+                                                        Nữ
+                                                    </span>
+                                                </p>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label">Ngày sinh:</label>
+                                            <div class="col-sm-10">
+                                                <p class="form-control-static" th:text="${#messages.msg('text')}">03/10/1988</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label">Email:</label>
+                                            <div class="col-sm-10">
+                                                <p class="form-control-static" th:text="${student.email}">khoa@gmail.com</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label">Điện thoại:</label>
+                                            <div class="col-sm-10">
+                                                <p class="form-control-static" th:text="${student.phone}">090654892</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label">Địa chỉ:</label>
+                                            <div class="col-sm-10">
+                                                <p class="form-control-static" th:text="${student.address}">186/17A Bình Thới Q11</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label">Điện thoại phụ huynh:</label>
+                                            <div class="col-sm-10">
+                                                <p class="form-control-static" th:text="${student.phoneParent}">09065489222</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label">Email phụ huynh:</label>
+                                            <div class="col-sm-10">
+                                                <p class="form-control-static" th:text="${student.emailParent}">parent@gmail.com</p>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="menu1" class="tab-pane fade">
+                            <div class="row">
+                                <div class="col-md-8 col-md-offset-2">
+                                    <h3 class="text-center">Cập Nhật Thông Tin Cá
+                                        Nhân</h3>
+
+                                    <div class="box box-borderless">
+                                        <div class="box-body box-profile">
+                                            <h4 class="profile-username text-center">
+                                                Trần Khắc Vỹ</h4>
+
+                                            <p class="text-muted text-center">Sinh
+                                                Viên</p>
+
+                                            <form class="form-horizontal">
+                                                <div class="form-group">
+                                                    <label for="inputPhone"
+                                                           class="col-sm-4 control-label">Số
+                                                        Điện Thoại*</label>
+
+                                                    <div class="col-sm-8">
+                                                        <input type="text"
+                                                               class="form-control"
+                                                               id="inputPhone"
+                                                               placeholder="Nhập Số Điện Thoại"/>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="inputAddress"
+                                                           class="col-sm-4 control-label">Địa
+                                                        Chỉ*</label>
+
+                                                    <div class="col-sm-8">
+                                                        <input type="text"
+                                                               class="form-control"
+                                                               id="inputAddress"
+                                                               placeholder="Nhập Địa Chỉ"/>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="inputParentPhone"
+                                                           class="col-sm-4 control-label">Số
+                                                        Điện Thoại Phụ
+                                                        Huynh*</label>
+
+                                                    <div class="col-sm-8">
+                                                        <input type="text"
+                                                               class="form-control"
+                                                               id="inputParentPhone"
+                                                               placeholder="Nhập Số Điện Thoại Phụ Huynh"/>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="inputParentEmail"
+                                                           class="col-sm-4 control-label">Email
+                                                        Phụ Huynh*</label>
+
+                                                    <div class="col-sm-8">
+                                                        <input type="text"
+                                                               class="form-control"
+                                                               id="inputParentEmail"
+                                                               placeholder="Nhập Email Phụ Huynh"/>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="col-sm-offset-5 col-sm-2">
+                                                        <button type="submit"
+                                                                class="btn btn-primary">
+                                                            Cập Nhật
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </form>
+
+
+                                        </div>
+                                        <!-- /.box-body -->
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div id="menu2" class="tab-pane fade">
+                            <div class="row">
+                                <div class="col-md-8 col-md-offset-2">
+                                    <h3 class="text-center">Đổi Mật Khẩu</h3>
+
+                                    <div class="box box-borderless">
+                                        <div class="box-body box-profile">
+                                            <form class="form-horizontal">
+                                                <div class="form-group">
+                                                    <label for="inputCurPassword"
+                                                           class="col-sm-4 control-label">Mật
+                                                        Khẩu Hiện Tại*</label>
+
+                                                    <div class="col-sm-8">
+                                                        <input type="text"
+                                                               class="form-control"
+                                                               id="inputCurPassword"
+                                                               placeholder="Mật Khẩu Hiện Tại"/>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="inputNewPassword"
+                                                           class="col-sm-4 control-label">Mật
+                                                        Khẩu Mới*</label>
+
+                                                    <div class="col-sm-8">
+                                                        <input type="text"
+                                                               class="form-control"
+                                                               id="inputNewPassword"
+                                                               placeholder="Mật Khẩu Mới"/>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="inputConfirmNewPassword"
+                                                           class="col-sm-4 control-label">Nhập
+                                                        Lại Mật Khẩu Mới*</label>
+
+                                                    <div class="col-sm-8">
+                                                        <input type="text"
+                                                               class="form-control"
+                                                               id="inputConfirmNewPassword"
+                                                               placeholder="Nhập Lại Mật Khẩu Mới"/>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="col-sm-offset-5 col-sm-2">
+                                                        <button type="submit"
+                                                                class="btn btn-primary">
+                                                            Cập Nhật
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <!-- /.box-body -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Main content END -->
+    </div>
+</div>
+</body>
+</html>
