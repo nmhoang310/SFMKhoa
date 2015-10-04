@@ -9,5 +9,5 @@ import org.springframework.ui.Model;
  * Created by Khoa on 9/30/2015.
  */
 public abstract class AbstractActionController {
-    abstract void initModel(Model model);
+
 }

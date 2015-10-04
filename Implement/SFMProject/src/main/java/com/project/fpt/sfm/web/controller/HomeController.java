@@ -10,10 +10,23 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class HomeController {
 
+    @RequestMapping("/")
+    public String index(Model model){
+        model.addAttribute("sidebar", "student/student-sidebar");
+        return "index";
+    }
+
+
     @RequestMapping("/home")
     public String homePage(Model model){
         model.addAttribute("sidebar", "student/student-sidebar");
+        return "home";
+    }
 
+    @RequestMapping("/student")
+    public String studenPage(Model model){
+        model.addAttribute("sidebar", "student/student-sidebar");
+        model.addAttribute("content", "student/profile");
 
         return "home";
     }
@@ -50,6 +63,14 @@ public class HomeController {
         return "home";
     }
 
+    @RequestMapping("/student/chitiet-donghocphi")
+    public String chitietdonghpcphi(Model model){
+        model.addAttribute("content", "student/chitiet-donghocphi");
+        model.addAttribute("sidebar", "student/student-sidebar");
+
+        return "home";
+    }
+
     @RequestMapping("/student/donghoclai")
     public String studentDongHocLai(Model model){
         model.addAttribute("content", "student/trangthaidonghoclai");
@@ -66,26 +87,78 @@ public class HomeController {
         return "home";
     }
 
-    @RequestMapping("/admin/hocphi")
-    public String adminHocPhi(Model model){
-        model.addAttribute("content", "admin/hocphi");
-        model.addAttribute("sidebar", "admin/admin-sidebar");
+    @RequestMapping("/manager/hocphi")
+    public String managerHocPhi(Model model){
+        model.addAttribute("content", "manager/hocphi");
+        model.addAttribute("sidebar", "manager/manager-sidebar");
 
         return "home";
     }
 
-    @RequestMapping("/admin/hoclai")
-    public String adminHocLai(Model model){
+    @RequestMapping("/manager/hoclai")
+    public String managerHocLai(Model model){
         // model.addAttribute("content", "student/xemlaivay");
-        model.addAttribute("sidebar", "admin/admin-sidebar");
+        model.addAttribute("sidebar", "manager/manager-sidebar");
 
         return "home";
     }
 
-    @RequestMapping("/admin")
-    public String admin(Model model){
-        // model.addAttribute("content", "student/xemlaivay");
-        model.addAttribute("sidebar", "admin/admin-sidebar");
+    @RequestMapping("/manager")
+    public String manager(Model model){
+        model.addAttribute("content", "manager/manager-home");
+        model.addAttribute("sidebar", "manager/manager-sidebar");
+
+        return "home";
+    }
+
+    @RequestMapping("/manager/danh-sach-vay-tin-dung")
+    public String managerStudentLoansCredit(Model model){
+        model.addAttribute("content", "manager/manager-loans-credit");
+        model.addAttribute("sidebar", "manager/manager-sidebar");
+
+        return "home";
+    }
+
+    @RequestMapping("/manager/danh-sach-tam-ngung-hoc")
+    public String managerListSuspension(Model model){
+        model.addAttribute("content", "manager/manager-list-suspension");
+        model.addAttribute("sidebar", "manager/manager-sidebar");
+
+        return "home";
+    }
+
+
+    /**
+     * STAFF
+     */
+    @RequestMapping("/staff/nhap-thong-tin-sinh-vien")
+    public String addStudentInformation(Model model){
+        model.addAttribute("content", "staff/add-student-information");
+        model.addAttribute("sidebar", "staff/staff-sidebar");
+
+        return "home";
+    }
+
+    @RequestMapping("/staff/nhap-ket-qua-hoc-tap")
+    public String addStudyResult(Model model){
+        model.addAttribute("content", "staff/add-study-result");
+        model.addAttribute("sidebar", "staff/staff-sidebar");
+
+        return "home";
+    }
+
+    @RequestMapping("/staff/nhap-thong-tin-tai-chinh")
+    public String addStudentFinance(Model model){
+        model.addAttribute("content", "staff/add-finance-information");
+        model.addAttribute("sidebar", "staff/staff-sidebar");
+
+        return "home";
+    }
+
+    @RequestMapping("/staff")
+    public String staff(Model model){
+        //model.addAttribute("content", "staff/add-finance-information");
+        model.addAttribute("sidebar", "staff/staff-sidebar");
 
         return "home";
     }
